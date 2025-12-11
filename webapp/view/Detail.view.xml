@@ -90,7 +90,7 @@
 			
 		</m:columns>
 		<m:items>
-			<m:ColumnListItem id="_IDGenColumnListItem1" vAlign="Middle" >
+			<m:ColumnListItem id="_IDGenColumnListItem1" highlight="{= (${LeaveDetailModel>Status} === 'Approved') ? 'Success' : (${LeaveDetailModel>Status} === 'Pending') ? 'Warning' : 'Error' }" vAlign="Middle" >
 				<m:cells>
 	<m:Text id="_IDGenText20" text="{LeaveDetailModel>LeaveId}"/>
     <m:Text id="_IDGenText21" text="{path: 'LeaveDetailModel>StartDate', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'MM/dd/yyyy'}}"/>
