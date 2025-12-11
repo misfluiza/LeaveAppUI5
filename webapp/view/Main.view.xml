@@ -2,5 +2,43 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+    <Table 
+		id="_IDGenTable1"
+		items="{
+			path: 'leaveDataModel>/',
+			sorter: {
+				path: 'EmployeeID'
+			}
+		}"
+		itemPress=".onRowPress"
+		>
+
+		<columns>
+			<Column id="employee">
+				<Text id="employee_id" text="{i18n>employeeid}" />
+			</Column>
+			<Column id="firstname">
+				<Text id="first_name" text="{i18n>firstname}" />
+			</Column>
+			<Column id="lastname">
+				<Text id="last_name" text="{i18n>lastname}" />
+			</Column>
+				<Column id="department">
+				<Text id="departmentt" text="{i18n>department}" />
+			</Column>
+			
+
+		</columns>
+		<items>
+			<ColumnListItem id="_IDGenColumnListItem" vAlign="Middle" type="Navigation" press="onListItemPress">
+				<cells>
+					<Text id="_IDGenText"  text="{leaveDataModel>EmployeeID}"   wrapping="false" />
+					<Text id="_IDGenText1"  text="{leaveDataModel>FirstName}"   wrapping="false"/>
+					<Text id="_IDGenText2"  text="{leaveDataModel>LastName}"    wrapping="false" />
+					<Text id="_IDGenText14"  text="{leaveDataModel>Department}" wrapping="false" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
     </Page>
 </mvc:View>

@@ -1,0 +1,115 @@
+<mvc:View 
+    controllerName="leaveui5.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"  
+    xmlns:m="sap.m" 
+	xmlns="sap.uxap"
+		> 
+    <ObjectPageLayout id="ObjectPageLayout"
+					 showTitleInHeaderContent="true"
+					alwaysShowContentHeader="false"
+					preserveHeaderStateOnScroll="false"
+					headerContentPinnable="true"
+					isChildPage="true"
+					upperCaseAnchorBar="false">
+        <headerTitle>
+			<ObjectPageDynamicHeaderTitle id="_IDGenObjectPageDynamicHeaderTitle1">
+						<expandedHeading>
+	<m:Title id="_IDGenTitle2" text="{= ${LeaveDetailModel>/FirstName} + ' ' + ${LeaveDetailModel>/LastName} }" wrapping="true" class="sapUiSmallMarginEnd" />
+						</expandedHeading>
+
+						<snappedHeading>
+							<m:FlexBox id="_IDGenFlexBox" wrap="Wrap" fitContainer="true" alignItems="Center">
+								<m:FlexBox id="_IDGenFlexBox1" wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
+									<m:Title id="_IDGenTitle3" text="{LeaveDetailModel>/EmployeeID}" wrapping="true" class="sapUiTinyMarginEnd"/>
+								</m:FlexBox>
+							</m:FlexBox>
+						</snappedHeading>
+
+						<navigationActions>
+							<m:OverflowToolbarButton id="_IDGenOverflowToolbarButton" type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" tooltip="Enter Full Screen Mode" visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"/>
+							<m:OverflowToolbarButton id="_IDGenOverflowToolbarButton1" type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" tooltip="Exit Full Screen Mode" visible="{= ${/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/>
+							<m:OverflowToolbarButton id="_IDGenOverflowToolbarButton2" type="Transparent" icon="sap-icon://decline" press="handleClose"  tooltip="Close column" visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }"/>
+						</navigationActions>
+
+					</ObjectPageDynamicHeaderTitle>
+				</headerTitle>
+
+				<headerContent>
+					<m:FlexBox id="_IDGenFlexBox2" wrap="Wrap" fitContainer="true" alignItems="Stretch">
+						<m:Avatar id="_IDGenAvatar1" src="{path: 'LeaveDetailModel>/EmployeeID', formatter:''}"
+								  displaySize="L"
+								  displayShape="Square"
+								  class="sapUiTinyMarginEnd">
+						</m:Avatar>
+						<m:VBox id="_IDGenVBox" justifyContent="Center" class="sapUiSmallMarginEnd">
+							<m:Label id="_IDGenLabel" text="Employee ID"/>
+							<m:Text id="_IDGenText6" text="{LeaveDetailModel>/EmployeeID}"/>
+						</m:VBox>
+						<m:VBox id="_IDGenVBox1" justifyContent="Center" class="sapUiSmallMarginEnd">
+							<m:Label id="_IDGenLabel1" text="First Name"/>
+							<m:Text id="_IDGenText31"
+  									text="{LeaveDetailModel>/FirstName}"/>
+
+						</m:VBox>
+                        <m:VBox id="_IDGenVBox3" justifyContent="Center" class="sapUiSmallMarginEnd">
+							<m:Label id="_IDGenLabel3" text="Last Name"/>
+							<m:Text id="_IDGenText33"
+  									text="{LeaveDetailModel>/LastName}"/>
+
+						</m:VBox>
+						<m:VBox id="_IDGenVBox2" justifyContent="Center" class="sapUiSmallMarginEnd">
+							<m:Label id="_IDGenLabel2" text="Department"/>
+							<m:ObjectNumber id="_IDGenObjectNumber" number="{LeaveDetailModel>/Department}" emphasized="false"/>
+						</m:VBox>
+					</m:FlexBox>
+				</headerContent>
+
+		<sections>
+			<ObjectPageSection id="_IDGenObjectPageSection" title="Leave Requests">
+				<subSections>
+					<ObjectPageSubSection id="_IDGenObjectPageSubSection">
+						<blocks>
+							 <m:Table id="_IDGenTable" 
+								items="{
+										path: 'LeaveDetailModel>/to_LeaveDetailsIH/results'
+									}">
+		<m:headerToolbar>
+			<m:OverflowToolbar id="_IDGenOverflowToolbar1" >
+				<m:Title id="_IDGenTitle1"  text="{i18n>detailTitle}" level="H2"/>
+				<m:ToolbarSpacer id="_IDGenToolbarSpacer1" />
+			</m:OverflowToolbar>
+		</m:headerToolbar> 
+		<m:columns>
+    <m:Column id="_IDGenColumn5"><m:Text id="_IDGenText9" text="{i18n>leaveID}"/></m:Column>
+    <m:Column id="_IDGenColumn7"><m:Text id="_IDGenText11" text="{i18n>start_date}"/></m:Column>
+    <m:Column id="_IDGenColumn8"><m:Text id="_IDGenText12" text="{i18n>end_date}"/></m:Column>
+    <m:Column id="_IDGenColumn9"><m:Text id="_IDGenText13" text="{i18n>type}"/></m:Column>
+    <m:Column id="_IDGenColumn10"><m:Text id="_IDGenText34" text="{i18n>status}"/></m:Column>
+    <!-- This is the 12th column -->
+    <m:Column id="_IDGenColumn16" width="4rem" hAlign="Center"/>
+			
+		</m:columns>
+		<m:items>
+			<m:ColumnListItem id="_IDGenColumnListItem1" vAlign="Middle" >
+				<m:cells>
+	<m:Text id="_IDGenText20" text="{LeaveDetailModel>LeaveId}"/>
+    <m:Text id="_IDGenText21" text="{path: 'LeaveDetailModel>StartDate', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'MM/dd/yyyy'}}"/>
+    <m:Text id="_IDGenText22" text="{path: 'LeaveDetailModel>EndDate',  type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'MM/dd/yyyy'}}"/>
+    <m:Text id="_IDGenText23" text="{LeaveDetailModel>LeaveType}"/>
+    <m:Text id="_IDGenText24" text="{LeaveDetailModel>Status}"/>
+				</m:cells>
+			</m:ColumnListItem>
+		</m:items>
+	</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+				
+	</ObjectPageLayout>
+
+
+
+
+</mvc:View>

@@ -104,12 +104,22 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "pattern": "Detail/{EmployeeID}",
+          "name": "Detail",
+          "target": "Detail"
         }
       ],
       "targets": {
         "TargetMain": {
           "id": "Main",
           "name": "Main"
+        },
+                "Detail": {
+          "viewId": "Detail",
+          "viewName": "Detail",
+          "viewLevel": 1
         }
       }
     },
