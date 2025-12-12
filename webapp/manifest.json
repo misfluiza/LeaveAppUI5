@@ -116,7 +116,7 @@
           "id": "Main",
           "name": "Main"
         },
-                "Detail": {
+        "Detail": {
           "viewId": "Detail",
           "viewName": "Detail",
           "viewLevel": 1

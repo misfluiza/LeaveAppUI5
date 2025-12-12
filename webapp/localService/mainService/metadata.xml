@@ -500,6 +500,14 @@
                     <Parameter Name="EmployeeID" Type="Edm.Guid" Mode="In" sap:label="UUID"/>
                     <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In" sap:label="Is active"/>
                 </FunctionImport>
+                <FunctionImport Name="createNewEntry" ReturnType="cds_zui_employee_ih_o4.LeaveRequestType" EntitySet="LeaveRequest" m:HttpMethod="POST">
+                    <Parameter Name="Leaveid" Type="Edm.Guid" Mode="In" Nullable="true" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)"/>
+                    <Parameter Name="IsActiveEntity" Type="Edm.String" Mode="In" MaxLength="1" Nullable="true"/>
+                    <Parameter Name="Startdate" Type="Edm.DateTime" Mode="In" Precision="0" Nullable="true" sap:display-format="Date"/>
+                    <Parameter Name="Enddate" Type="Edm.DateTime" Mode="In" Precision="0" Nullable="true" sap:display-format="Date"/>
+                    <Parameter Name="Type" Type="Edm.String" Mode="In" MaxLength="10" Nullable="true"/>
+                    <Parameter Name="Status" Type="Edm.String" Mode="In" MaxLength="10" Nullable="true" sap:value-list="standard"/>
+                </FunctionImport>
                 <FunctionImport Name="LeaveRequestDiscard" ReturnType="cds_zui_employee_ih_o4.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_zui_employee_ih_o4.LeaveRequestType">
                     <Parameter Name="EmployeeID" Type="Edm.Guid" Mode="In" sap:label="UUID"/>
                     <Parameter Name="IsActiveEntity" Type="Edm.Boolean" Mode="In" sap:label="Is active"/>
@@ -747,6 +755,23 @@
                                 </Record>
                                 <Record Type="Common.ValueListParameterDisplayOnly">
                                     <PropertyValue Property="ValueListProperty" String="UserDescription"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_employee_ih_o4.cds_zui_employee_ih_o4_Entities/createNewEntry/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="ZC_STATUS_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Status"/>
+                                    <PropertyValue Property="ValueListProperty" String="status"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>

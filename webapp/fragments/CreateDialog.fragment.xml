@@ -1,0 +1,28 @@
+<c:FragmentDefinition xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Dialog id="createDialog" title="Create Leave Request">
+        <content>
+            <form:SimpleForm id="simpleFormCreateDialog">
+                <form:content>
+                    <Label id="label_1" text="{i18n>leaveID}" required="true" />
+                    <Input id="leaveIDInput" editable="false" />
+                    <Label id="label_2" text="{i18n>start_date}" />
+                    <Input id="startDateInput" editable="true" />
+                    <Label id="label_3" text="{i18n>end_date}" />
+                    <Input id="endDateInput" editable="true" />
+                    <Label id="label_4" text="{i18n>type}" />
+                    <Input id="typeInput" editable="true" />
+                    <Label id="label_5" text="{i18n>status}" />
+                    <Input id="statusInput" editable="true" />
+                </form:content>
+            </form:SimpleForm>
+        </content>
+        <beginButton>
+            <Button id="createUpd" text="Create" press="onCreateNewRecord" />
+        </beginButton>
+        <endButton>
+            <Button id="cancelUpd" text="Cancel" press="onCancelRecord" />
+        </endButton>
+    </Dialog>
+</c:FragmentDefinition>
